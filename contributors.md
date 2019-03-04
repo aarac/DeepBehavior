@@ -1,5 +1,9 @@
 ### Contributors
+
 Pingping Zhao
-Bruce Dobkin
+
+Bruce Dobkin 
+
 S Thomas Carmichael
+
 Peyman Golshani
