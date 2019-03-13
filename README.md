@@ -4,7 +4,7 @@ DeepBehavior is a deep learning based toolbox for analysis of videos of behavior
 
 ## Getting Started
 
-Which model to use?
+Which model should I use?
 
 ### Tensorbox
 
@@ -28,13 +28,35 @@ Please check each model's requirements within that page:
 
 [Openpose](https://github.com/CMU-Perceptual-Computing-Lab/openpose)
 
-## Using models
+## Using the models
 
 ### Tensorbox
 
+First, create two folders (train and test) of images from the raw video files. FFMPEG can be used for this. To start with, we used ~600 images in train dataset and ~200 images in test dataset.
+Then, for each folder, run this command to label images in each folder one by one:
 ```
-Give the example
+python make_json.py FOLDERNAME FOLDERNAME.json 
 ```
+This creates a json file in the same directory as the folder.
+
+Make the appropriate directory changes in the hypes file in the hypes directory. This is the hyper parameters file.
+
+Then, start training with this command line:
+```
+python train.py --hypes hypes/HYPESFILENAME.json --gpu 0 --logdir output
+```
+This creates files in the output folder with the trained weights under "save.ckpt-ITERATIONNUMBER".
+
+Check the results by looking at the individual detected images using:
+```
+python predict_video_to_images.py VIDEONAME.avi output/TRAININGFOLDER/save.ckpt-ITERATIONNUMBER output/TRAININGFOLDER/hypes.json
+```
+
+If satisfied, then this command can be used to obtain the coordinates of the bounding boxes and confidence scores:
+```
+python predict_video_to_json.py VIDEONAME.avi tensorbox/TRAININGFOLDER/save.ckpt-ITERATIONNUMBER tensorbox/TRAININGFOLDER/hypes.json JSONFILENAME.json
+```
+The file "JSONFILENAME.json" includes the coordinates and confidence scores of bounding boxes for all of the individual frames in the video. This json file then can be used in MATLAB for post-processing.
 
 ### YOLOv3
 
@@ -57,6 +79,7 @@ Give the example
 * [Matlab Camera Calibration Toolbox](http://www.vision.caltech.edu/bouguetj/calib_doc/) - Required for two-camera calibration in MATLAB
 * [JSONlab](https://www.mathworks.com/matlabcentral/fileexchange/33381-jsonlab-a-toolbox-to-encode-decode-json-files) - Required to read JSON files in MATLAB
 * [PIMS](http://soft-matter.github.io/pims/v0.4.1/) - Used to read '.seq' files in Python
+* [FFMPEG](https://www.ffmpeg.org) - Useful toolbox for converting videos to images or vice versa.
 
 ## Authors
 
