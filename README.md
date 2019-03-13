@@ -59,10 +59,15 @@ python predict_video_to_json.py VIDEONAME.avi tensorbox/TRAININGFOLDER/save.ckpt
 The file "JSONFILENAME.json" includes the coordinates and confidence scores of bounding boxes for all of the individual frames in the video. This json file then can be used in MATLAB for post-processing.
 
 ### YOLOv3
+First, create a folder that will include the training image dataset. We recommend starting with ~200 images.
+
+Then, run this in the command line in the Yolo_mark directory:
 
 ```
-Give the example
+./linux_mark.sh
 ```
+
+This will open a GUI window where you can draw the bounding boxes on the region of interests.
 
 ### Openpose
 
