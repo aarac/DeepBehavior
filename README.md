@@ -1,60 +1,50 @@
 # DeepBehavior
 
-One Paragraph of project description goes here
+DeepBehavior is a deep learning based toolbox for analysis of videos of behavior experiments in rodents and humans. We provide examples of implementation, and code for post-processing of the data. We show examples of five behavior tasks (food pellet reaching task, three-chamber test, social interaction test in mice; and reaching task and supination/pronation task in humans). We use three network models. Please find detailed explanation below.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Which model to use?
 
-### Prerequisites
+### Tensorbox
 
-What things you need to install the software and how to install them
+If you aim to detect only one type of object per image, then you can use Tensorbox. Although you can detct only one type of object per image, you can detect multiple of this same type of object.
 
-```
-Give examples
-```
+### YOLOv3
 
-### Installing
+If you plan on detecting multiple types of objects per image, then you can use YOLOv3.
 
-A step by step series of examples that tell you how to get a development env running
+### Openpose
 
-Say what the step will be
+If you plan on performing kinematic analysis on human movements, then Openpose is the model to use.
+
+## Prerequisites and Installing
+
+Please check each model's requirements within that page.
+
+## Using models
+
+### Tensorbox
 
 ```
 Give the example
 ```
 
-And repeat
+### YOLOv3
 
 ```
-until finished
+Give the example
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
+### Openpose
 
 ```
-Give an example
+Give the example
 ```
 
-### And coding style tests
 
-Explain what these tests test and why
 
-```
-Give an example
-```
 
-## Deployment
-
-Add additional notes about how to deploy this on a live system
 
 ## Additional required toolboxes
 
@@ -74,4 +64,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* We would like to thank the authors of the three network models ([Tensorbox](https://github.com/Russell91/TensorBox), [YOLOv3](https://github.com/AlexeyAB/darknet), and [Openpose](https://github.com/CMU-Perceptual-Computing-Lab/openpose) that we have used in this repository.
+* We would like to thank the authors of the three network models ([Tensorbox](https://github.com/Russell91/TensorBox), [YOLOv3](https://github.com/AlexeyAB/darknet), and [Openpose](https://github.com/CMU-Perceptual-Computing-Lab/openpose)) that we have used in this repository.
