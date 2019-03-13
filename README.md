@@ -20,7 +20,13 @@ If you plan on performing kinematic analysis on human movements, then Openpose i
 
 ## Prerequisites and Installing
 
-Please check each model's requirements within that page.
+Please check each model's requirements within that page:
+
+[Tensorbox](https://github.com/Russell91/TensorBox)
+
+[YOLOv3](https://github.com/AlexeyAB/darknet)
+
+[Openpose](https://github.com/CMU-Perceptual-Computing-Lab/openpose)
 
 ## Using models
 
