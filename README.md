@@ -16,17 +16,17 @@ If you plan on detecting multiple types of objects per image, then you can use Y
 
 ### Openpose
 
-If you plan on performing kinematic analysis on human movements, then Openpose is the model to use.
+If you plan on performing 3D kinematic analysis on human movements, then Openpose is the model to use.
 
 ## Prerequisites and Installing
 
-Please check each model's requirements within that page:
+Please check each model's requirements and how to install them here:
 
-[Tensorbox](https://github.com/Russell91/TensorBox)
+[Tensorbox](https://github.com/aarac/TensorBox)
 
-[YOLOv3](https://github.com/AlexeyAB/darknet)
+[YOLOv3](https://github.com/aarac/darknet)
 
-[Openpose](https://github.com/CMU-Perceptual-Computing-Lab/openpose)
+[Openpose](https://github.com/aarac/openpose)
 
 ## Using the models
 
