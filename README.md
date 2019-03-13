@@ -79,7 +79,7 @@ Then, we processed videos obtained from each camera with openpose using the foll
 ./build/examples/openpose/openpose.bin --num_gpu 0 --video VIDEONAME.avi --net_resolution "1312x736" --scale_number 4 --scale_gap 0.25 --hand --hand_scale_number 6 --hand_scale_range 0.4 --write_json JSONFOLDERNAME --write_video RESULTINGVIDEONAME.avi
 ```
 
-This creates indivudal json files for each frame in the video. So, it is important to keep it in one folder.
+This creates indivudal json files for each frame in the video. So, it is important to keep it in one folder (JSONFOLDERNAME). We will later use these for post-processing and 3D analysis.
 
 After obtaining the JSON files in two folders, we use MATLAB to calibrate the cameras and post-process the JSON files to obtain 3D positions.
 
