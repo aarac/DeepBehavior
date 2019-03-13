@@ -86,7 +86,7 @@ In MATLAB folder, please use 'process_files_human3D.m' script to run the code.
 
 * [Matlab Camera Calibration Toolbox](http://www.vision.caltech.edu/bouguetj/calib_doc/) - Required for two-camera calibration in MATLAB
 * [JSONlab](https://www.mathworks.com/matlabcentral/fileexchange/33381-jsonlab-a-toolbox-to-encode-decode-json-files) - Required to read JSON files in MATLAB
-* [PIMS](http://soft-matter.github.io/pims/v0.4.1/) - Used to read '.seq' files in Python
+* [PIMS](http://soft-matter.github.io/pims/v0.4.1/) - This can be used to read '.seq' files in Python
 * [FFMPEG](https://www.ffmpeg.org) - Useful toolbox for converting videos to images or vice versa.
 
 ## Authors
