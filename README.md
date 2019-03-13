@@ -66,11 +66,19 @@ Give the example
 
 ### Openpose
 
+To obtain 3D kinematics, we use two camera stereo system. It is important that the cameras are synchronized to each other.
+
+Then, we processed videos obtained from each camera with openpose using the following command line:
+
 ```
-Give the example
+./build/examples/openpose/openpose.bin --num_gpu 0 --video VIDEONAME.avi --net_resolution "1312x736" --scale_number 4 --scale_gap 0.25 --hand --hand_scale_number 6 --hand_scale_range 0.4 --write_json JSONFOLDERNAME --write_video RESULTINGVIDEONAME.avi
 ```
 
+This creates indivudal json files for each frame in the video. So, it is important to keep it in one folder.
 
+After obtaining the JSON files in two folders, we use MATLAB to calibrate the cameras and post-process the JSON files to obtain 3D positions.
+
+In MATLAB folder, please use 'process_files_human3D.m' script to run the code.
 
 
 
