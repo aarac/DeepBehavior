@@ -4,7 +4,7 @@ DeepBehavior is a deep learning based toolbox for analysis of videos of behavior
 
 ## Getting Started
 
-Which model should I use?
+### Which model should I use?
 
 ### Tensorbox
 
