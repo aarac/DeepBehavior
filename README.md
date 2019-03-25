@@ -1,5 +1,7 @@
 # DeepBehavior
 
+## A deep learning toolbox for automated analysis of animal and human behavior imaging data
+
 DeepBehavior is a deep learning based toolbox for analysis of videos of behavior experiments in rodents and humans. We provide examples of implementation, and code for post-processing of the data. We show examples of five behavior tasks (food pellet reaching task, three-chamber test, social interaction test in mice; and reaching task and supination/pronation task in humans). We use three network models. Please find detailed explanation below.
 
 ## Getting Started
