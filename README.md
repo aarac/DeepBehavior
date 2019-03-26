@@ -61,6 +61,7 @@ python predict_video_to_json.py VIDEONAME.avi tensorbox/TRAININGFOLDER/save.ckpt
 The file "JSONFILENAME.json" includes the coordinates and confidence scores of bounding boxes for all of the individual frames in the video. This json file can be used in MATLAB for post-processing.
 
 Post-processing:
+
 In MATLAB, please run the "Process_files_3Dreaching_mouse.m" script for 3D kinematic analysis of single food pellet reaching task.
 
 Please run the "Process_three_chamber.m" script for three-chamber test.
@@ -120,7 +121,7 @@ This creates indivudal json files for each frame in the video. So, it is importa
 
 After obtaining the JSON files in two folders, we use MATLAB to calibrate the cameras and post-process the JSON files to obtain 3D positions.
 
-Post-processing:
+Postprocessing:
 
 In MATLAB folder, please use 'process_files_human3D.m' script to run the code. This will create a "cell" file with all the 3D poses of the joints. It will also make a movie of the 3D skeletal view.
 
