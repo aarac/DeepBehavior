@@ -2,7 +2,7 @@
 
 ## A deep learning toolbox for automated analysis of animal and human behavior imaging data
 
-DeepBehavior is a deep learning based toolbox for analysis of videos of behavior experiments in rodents and humans. We provide examples of implementation, and code for post-processing of the data. We show examples of five behavior tasks (food pellet reaching task, three-chamber test, social interaction test in mice; and reaching task and supination/pronation task in humans). We use three network models. Please find detailed explanation below.
+DeepBehavior is a deep learning based toolbox for analysis of videos of behavior experiments in rodents and humans. We provide examples of implementation, and code for post-processing of the data. We show examples of five behavior tasks (food pellet reaching task, three-chamber test, social interaction of two mice; and reaching task and supination/pronation task in humans). We use three network models. Please find detailed explanation below.
 
 ## Getting Started
 
@@ -10,7 +10,7 @@ DeepBehavior is a deep learning based toolbox for analysis of videos of behavior
 
 ### Tensorbox
 
-If you aim to detect only one type of object per image, then you can use Tensorbox. Although you can detct only one type of object per image, you can detect multiple of this same type of object.
+If you aim to detect only one type of object per image, then you can use Tensorbox. You can detect only one type of object per image, however, you can detect multiple of this same type of object in a single frame.
 
 ### YOLOv3
 
@@ -18,7 +18,7 @@ If you plan on detecting multiple types of objects per image, then you can use Y
 
 ### Openpose
 
-If you plan on performing 3D kinematic analysis on human movements, then Openpose is the model to use.
+If you plan on performing 3D kinematic analysis on human movements, then Openpose is the model to use. The post-processing code is for developed for upper extremity movements.
 
 ## Prerequisites and Installing
 
