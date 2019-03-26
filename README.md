@@ -60,7 +60,10 @@ python predict_video_to_json.py VIDEONAME.avi tensorbox/TRAININGFOLDER/save.ckpt
 ```
 The file "JSONFILENAME.json" includes the coordinates and confidence scores of bounding boxes for all of the individual frames in the video. This json file can be used in MATLAB for post-processing.
 
-In MATLAB, please run the "Process_files_3Dreaching_mouse.m" script.
+Post-processing:
+In MATLAB, please run the "Process_files_3Dreaching_mouse.m" script for 3D kinematic analysis of single food pellet reaching task.
+
+Please run the "Process_three_chamber.m" script for three-chamber test.
 
 ### YOLOv3
 First, create a folder that will include the training image dataset. We recommend starting with ~200 images.
@@ -107,7 +110,7 @@ You can take the FILENAME.txt file to MATLAB, and run the "Process_socialtest_mi
 
 To obtain 3D kinematics, we use two camera stereo system. It is important that the cameras are synchronized to each other.
 
-Then, we processed videos obtained from each camera with openpose using the following command line:
+Then, we process videos obtained from each camera with openpose using the following command line:
 
 ```
 ./build/examples/openpose/openpose.bin --num_gpu 0 --video VIDEONAME.avi --net_resolution "1312x736" --scale_number 4 --scale_gap 0.25 --hand --hand_scale_number 6 --hand_scale_range 0.4 --write_json JSONFOLDERNAME --write_video RESULTINGVIDEONAME.avi
@@ -117,7 +120,7 @@ This creates indivudal json files for each frame in the video. So, it is importa
 
 After obtaining the JSON files in two folders, we use MATLAB to calibrate the cameras and post-process the JSON files to obtain 3D positions.
 
-In MATLAB folder, please use 'process_files_human3D.m' script to run the code.
+In MATLAB folder, please use 'process_files_human3D.m' script to run the code. This will create a "cell" file with all the 3D poses of the joints. It will also make a movie of the 3D skeletal view.
 
 
 
