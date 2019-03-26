@@ -119,7 +119,7 @@ Then, we process videos obtained from each camera with openpose using the follow
 
 This creates indivudal json files for each frame in the video. So, it is important to keep it in one folder (JSONFOLDERNAME). We will later use these for post-processing and 3D analysis.
 
-After obtaining the JSON files in two folders, we use MATLAB to calibrate the cameras and post-process the JSON files to obtain 3D positions.
+After obtaining the JSON files in two folders, we use MATLAB to calibrate the cameras and post-process the JSON files to obtain 3D positions. For camera calibration, you can use the calib_board_human3D.pdf file (this is a 7x10 checkerboard that has 115x115 mm squares when printed in 48"x36" size.
 
 Postprocessing:
 
