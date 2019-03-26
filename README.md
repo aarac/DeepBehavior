@@ -2,7 +2,7 @@
 
 ## A deep learning toolbox for automated analysis of animal and human behavior imaging data
 
-DeepBehavior is a deep learning based toolbox for analysis of videos of behavior experiments in rodents and humans. We provide examples of implementation, and code for post-processing of the data. We show examples of five behavior tasks (food pellet reaching task, three-chamber test, social interaction test in mice; and reaching task and supination/pronation task in humans). We use three network models. Please find detailed explanation below.
+DeepBehavior is a deep learning based toolbox for analysis of videos of behavior experiments in rodents and humans. We provide examples of implementation, and code for post-processing of the data. We show examples of five behavior tasks (food pellet reaching task, three-chamber test, social interaction of two mice; and reaching task and supination/pronation task in humans). We use three network models. Please find detailed explanation below.
 
 ## Getting Started
 
@@ -10,7 +10,7 @@ DeepBehavior is a deep learning based toolbox for analysis of videos of behavior
 
 ### Tensorbox
 
-If you aim to detect only one type of object per image, then you can use Tensorbox. Although you can detct only one type of object per image, you can detect multiple of this same type of object.
+If you aim to detect only one type of object per image, then you can use Tensorbox. You can detect only one type of object per image, however, you can detect multiple of this same type of object in a single frame.
 
 ### YOLOv3
 
@@ -18,7 +18,7 @@ If you plan on detecting multiple types of objects per image, then you can use Y
 
 ### Openpose
 
-If you plan on performing 3D kinematic analysis on human movements, then Openpose is the model to use.
+If you plan on performing 3D kinematic analysis on human movements, then Openpose is the model to use. The post-processing code is for developed for upper extremity movements.
 
 ## Prerequisites and Installing
 
@@ -30,7 +30,7 @@ Please check each model's requirements and how to install them here:
 
 [Openpose](https://github.com/aarac/openpose)
 
-## Using the models
+## Using the models (after installations)
 
 ### Tensorbox
 
@@ -54,11 +54,16 @@ Check the results by looking at the individual detected images using:
 python predict_video_to_images.py VIDEONAME.avi output/TRAININGFOLDER/save.ckpt-ITERATIONNUMBER output/TRAININGFOLDER/hypes.json
 ```
 
-If satisfied, then this command can be used to obtain the coordinates of the bounding boxes and confidence scores:
+If satisfied, then the following command line can be used to obtain the coordinates of the bounding boxes and confidence scores:
 ```
 python predict_video_to_json.py VIDEONAME.avi tensorbox/TRAININGFOLDER/save.ckpt-ITERATIONNUMBER tensorbox/TRAININGFOLDER/hypes.json JSONFILENAME.json
 ```
-The file "JSONFILENAME.json" includes the coordinates and confidence scores of bounding boxes for all of the individual frames in the video. This json file then can be used in MATLAB for post-processing.
+The file "JSONFILENAME.json" includes the coordinates and confidence scores of bounding boxes for all of the individual frames in the video. This json file can be used in MATLAB for post-processing.
+
+Post-processing:
+In MATLAB, please run the "Process_files_3Dreaching_mouse.m" script for 3D kinematic analysis of single food pellet reaching task.
+
+Please run the "Process_three_chamber.m" script for three-chamber test.
 
 ### YOLOv3
 First, create a folder that will include the training image dataset. We recommend starting with ~200 images.
@@ -69,13 +74,43 @@ Then, run this in the command line in the Yolo_mark directory:
 ./linux_mark.sh
 ```
 
-This will open a GUI window where you can draw the bounding boxes on the region of interests.
+This will open a GUI window where you can draw the bounding boxes on the region of interests, and do it for all the images in the folder. These should be the training dataset. Once this is completed, transfer the folder named "obj" (contains the images and the .txt files of labels), the files named "obj.data", "obj.names", "train.txt" to the data folder in the main darknet directory.
+
+You can now start training with the following command:
+
+```
+./darknet detector train data/obj.data cfg/yolo-obj.cfg darknet53.conv.74
+```
+
+You can train up to 200,000 iterations. The number of iterations may depend on the type of images, number of training dataset.
+
+Once the training is completed, you can check the results on new images:
+
+```
+./darknet detector test data/obj.data cfg/yolo-obj.cfg backup/yolo-obj_ITERATIONNUMBER.weights IMAGE.jpg
+```
+
+... and new videos:
+
+```
+./darknet detector demo data/obj.data cfg/yolo-obj.cfg backup/yolo-obj_ITERATIONNUMBER.weights VIDEO.avi
+```
+
+To save the resulting video and the coordinates (in .txt file), please use this command:
+
+```
+./darknet detector demo data/obj.data cfg/yolo-obj.cfg backup/yolo-obj_ITERATIONNUMBER.weights VIDEO.avi -ext_output <VIDEO.avi> FILENAME.txt
+```
+
+Postprocessing:
+
+You can take the FILENAME.txt file to MATLAB, and run the "Process_socialtest_mini.m" script. This script was developed to detect two mice (as shown in the paper), however, it can be modified for other custom uses.
 
 ### Openpose
 
 To obtain 3D kinematics, we use two camera stereo system. It is important that the cameras are synchronized to each other.
 
-Then, we processed videos obtained from each camera with openpose using the following command line:
+Then, we process videos obtained from each camera with openpose using the following command line:
 
 ```
 ./build/examples/openpose/openpose.bin --num_gpu 0 --video VIDEONAME.avi --net_resolution "1312x736" --scale_number 4 --scale_gap 0.25 --hand --hand_scale_number 6 --hand_scale_range 0.4 --write_json JSONFOLDERNAME --write_video RESULTINGVIDEONAME.avi
@@ -85,7 +120,9 @@ This creates indivudal json files for each frame in the video. So, it is importa
 
 After obtaining the JSON files in two folders, we use MATLAB to calibrate the cameras and post-process the JSON files to obtain 3D positions.
 
-In MATLAB folder, please use 'process_files_human3D.m' script to run the code.
+Post-processing:
+
+In MATLAB folder, please use 'process_files_human3D.m' script to run the code. This will create a "cell" file with all the 3D poses of the joints. It will also make a movie of the 3D skeletal view.
 
 
 
