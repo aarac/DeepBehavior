@@ -72,7 +72,8 @@ output_video_name='OUTPUTVIDEONAME.avi';
 
 workingDirside = 'IMAGEFOLDERDIRECTORY';
 
-
+make_video_social(output_video_name,workingDirside,mouseA, mouseB,...
+    headA, headB, noseA, noseB, tailA, tailB)
 
 
 
