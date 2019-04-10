@@ -4,6 +4,23 @@
 
 DeepBehavior is a deep learning based toolbox for analysis of videos of behavior experiments in rodents and humans. We provide examples of implementation, and code for post-processing of the data. We show examples of five behavior tasks (food pellet reaching task, three-chamber test, social interaction of two mice; and reaching task and supination/pronation task in humans). We use three network models. Please find detailed explanation below.
 
+
+<p align="center">
+    <img src="doc/media/mousereach_aa.gif", height="400">
+    <img src="doc/media/humanreach_aa.gif", height="400">
+    <br>
+    <sup>3D kinematic analysis of reaching task in mice and humans.</sup>
+</p>
+
+
+<p align="center">
+    <img src="doc/media/socialmice_aa.gif", height="360">
+    <img src="doc/media/threechamber_aa.gif", height="360">
+    <br>
+    <sup>Examples of social behavior analysis in mice (social interaction on the left, three chamber test on the right).</sup>
+</p>
+
+
 ## Getting Started
 
 ### Which model should I use?
