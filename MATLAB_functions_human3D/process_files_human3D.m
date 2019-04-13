@@ -8,7 +8,7 @@ clear;clc;
 
 %% extract the 3D positions of all joints
 
-poses_3D = poses_final('newtest2_cam1', 'newtest2_cam2', 'Calib_Results_stereo.mat');
+poses_3D = poses_final('cam1_folder', 'cam2_folder', 'Calib_Results_stereo.mat');
 
 
 %% test any frame to adjust the min_az, max_az and el settings.
