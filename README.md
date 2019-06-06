@@ -165,3 +165,17 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## Acknowledgments
 
 * We would like to thank the authors of the three network models ([Tensorbox](https://github.com/Russell91/TensorBox), [YOLOv3](https://github.com/AlexeyAB/darknet), and [Openpose](https://github.com/CMU-Perceptual-Computing-Lab/openpose)) that we have used in this repository.
+
+## Citation
+If you use our code, please cite:
+
+    @article{Arac2019DeepBehavior,
+      author = {Ahmet Arac and Pingping Zhao and Bruce H Dobkin and S Thomas Carmichael and Peyman Golshani},
+      journal = {Frontiers in Systems Neuroscience 2019 May 7;13:20},
+      title = {DeepBehavior: A Deep Learning Toolbox for Automated Analysis of Animal and Human Behavior Imaging Data},
+      year = {2019}
+    }
+    
+Here is a direct link to our paper:
+
+[DeepBehavior: A Deep Learning Toolbox for Automated Analysis of Animal and Human Behavior Imaging Data](https://www.frontiersin.org/articles/10.3389/fnsys.2019.00020/full)
